@@ -1,4 +1,6 @@
-const restful = require('restful')
+require('../../database')
+const restful = require('node-restful')
+// using mongoose from restful
 const mongoose = restful.mongoose
 
 const TodoSchema = new mongoose.Schema({
@@ -17,6 +19,6 @@ const TodoSchema = new mongoose.Schema({
     }
 })
 
-const ToDo = mongoose.model('ToDo', TodoSchema)
+const ToDo = restful.model('ToDo', TodoSchema)
 
 module.exports = ToDo

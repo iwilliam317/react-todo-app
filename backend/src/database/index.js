@@ -9,4 +9,3 @@ mongoose.connect(url, (error, response) => {
 
 mongoose.Promise = global.Promise
 
-module.export = mongoose
