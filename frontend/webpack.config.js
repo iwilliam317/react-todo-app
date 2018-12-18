@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
 
 module.exports = {
     entry : './src/index.jsx',
@@ -14,7 +15,7 @@ module.exports = {
     resolve : {
         extensions : ['', '.js', '.jsx'],
         alias : {
-            modules : __dirname + '/node_modules'
+            modules : path.resolve(__dirname, 'node_modules')
         }
     },
     plugins: [
