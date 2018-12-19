@@ -13,10 +13,10 @@ export default props => (
                     
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#"><span className="text-light  font-weight-bold">Tasks</span><span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="#/todos"><span className="text-light  font-weight-bold">Tasks</span><span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#"><span className="text-light ">About</span></a>
+                    <a className="nav-link" href="#/about"><span className="text-light ">About</span></a>
                 </li>
             </ul>
         </div>
