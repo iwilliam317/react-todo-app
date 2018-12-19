@@ -10,7 +10,7 @@ export default class ToDo extends Component {
         this.setState({ value: this.state.value + 1 })
     }
     componentDidMount(){
-        setInterval(() => this.setState({ value: this.state.value + 1 }) ,1000)
+        setInterval(() => this.counter() ,1000)
     }
     render(){
         return (
