@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PageHeader from '../template/pageHeader'
 
 export default class ToDo extends Component {
     constructor(props){
@@ -15,7 +16,7 @@ export default class ToDo extends Component {
     render(){
         return (
             <div>
-                <h1>ToDo</h1>
+                <PageHeader title='ToDo' />
                 { this.state.value }
             </div>
 
