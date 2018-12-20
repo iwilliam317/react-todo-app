@@ -6,8 +6,8 @@ import ToDo from '../todo'
 
 export default props => (
     <Router history={hashHistory}>
-        <Route path='todos' component={ToDo} />
-        <Route path='about' component={About} />
+        <Route path='/todos' component={ToDo} />
+        <Route path='/about' component={About} />
         <Redirect from='*' to='/todos' />
     </Router>
 )
