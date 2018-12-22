@@ -1,5 +1,6 @@
 import React from 'react'
 import Grid from '../template/grid'
+import Button from '../template/button'
 
 export default props => (
     <div role='form' className='todoForm row'>
@@ -7,9 +8,7 @@ export default props => (
             <input id='description' className='form-control' placeholder='Add a task'></input>
         </Grid>
         <Grid cols='12 3 2'>
-            <button className='btn btn-primary'>
-                <i className='fa fa-plus'></i>
-            </button>
+            <Button style='primary' icon='plus' />
         </Grid>
     </div>
 )
