@@ -8,7 +8,7 @@ export default props => (
             <input id='description' className='form-control' placeholder='Add a task'></input>
         </Grid>
         <Grid cols='12 3 2'>
-            <Button style='primary' icon='plus' hide={false}/>
+            <Button style='primary' icon='plus' hide={false} onClick={props.handleAdd} />
         </Grid>
     </div>
 )
