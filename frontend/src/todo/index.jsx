@@ -11,12 +11,20 @@ export default class ToDo extends Component {
        
         this.state = { description: '', list: [] }
     }
+
+    componentDidMount(){
+        this.loadTasks()
+    }
+
+    loadTasks(){
+        api.get('/todos')
+            .then(res => this.setState({ description : '', list : res.data }))
+    }
     
     handleAdd(){
         const { description } = this.state
         api.post('/todos', { description })
-            .then(res => console.log('funcionou'))
-        // console.log('Adding..' ,description)
+            .then(res => this.loadTasks())
     }
 
     handleChange(event){
@@ -28,7 +36,7 @@ export default class ToDo extends Component {
             <div>
                 <PageHeader title='ToDo' />
                 <Form handleAdd={this.handleAdd.bind(this)} handleChange={this.handleChange.bind(this)} description={this.state.description} />
-                <List />
+                <List tasks={this.state.list}/>
             </div>
 
         )
