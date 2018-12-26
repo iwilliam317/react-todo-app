@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import PageHeader from '../template/pageHeader'
+import api from '../services/api'
 
+import PageHeader from '../template/pageHeader'
 import Form from './form'
 import List from './list'
 
@@ -12,7 +13,10 @@ export default class ToDo extends Component {
     }
     
     handleAdd(){
-        console.log('Adding..' ,this.state.description)
+        const { description } = this.state
+        api.post('/todos', { description })
+            .then(res => console.log('funcionou'))
+        // console.log('Adding..' ,description)
     }
 
     handleChange(event){
