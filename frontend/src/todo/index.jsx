@@ -31,12 +31,18 @@ export default class ToDo extends Component {
         this.setState({ description : event.target.value })
     }
 
+    handleRemove(task){
+        if(confirm('Are you sure?')){
+            api.delete(`/todos/${task._id}`)
+                .then(res => this.loadTasks())
+        }
+    }
     render(){
         return (
             <div>
                 <PageHeader title='ToDo' />
                 <Form handleAdd={this.handleAdd.bind(this)} handleChange={this.handleChange.bind(this)} description={this.state.description} />
-                <List tasks={this.state.list}/>
+                <List tasks={this.state.list} handleRemove={this.handleRemove.bind(this)} />
             </div>
 
         )

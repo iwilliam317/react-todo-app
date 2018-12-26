@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../template/button'
 
 export default props => {
 
@@ -9,6 +10,7 @@ export default props => {
             tasks.map(task => (
                 <tr key={ task._id }>
                     <td>{ task.description}</td>
+                    <td><Button style='danger' onClick={() => props.handleRemove(task)} icon='trash' /></td>
                 </tr>
             ))
         )
@@ -23,6 +25,9 @@ export default props => {
                     <tr>
                         <th>
                             Description
+                        </th>
+                        <th>
+                            Actions
                         </th>
                     </tr>
                 </thead>
