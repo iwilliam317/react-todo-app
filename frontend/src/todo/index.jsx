@@ -7,18 +7,23 @@ import List from './list'
 export default class ToDo extends Component {
     constructor(props){
         super(props)
-        this.handleAdd = this.handleAdd.bind(this)
+       
+        this.state = { description: '', list: [] }
     }
     
     handleAdd(){
-        console.log('Adding..', this)
+        console.log('Adding..' ,this.state.description)
+    }
+
+    handleChange(event){
+        this.setState({ description : event.target.value })
     }
 
     render(){
         return (
             <div>
                 <PageHeader title='ToDo' />
-                <Form handleAdd={this.handleAdd} />
+                <Form handleAdd={this.handleAdd.bind(this)} handleChange={this.handleChange.bind(this)} description={this.state.description} />
                 <List />
             </div>
 
