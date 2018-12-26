@@ -17,7 +17,7 @@ export default class ToDo extends Component {
     }
 
     loadTasks(){
-        api.get('/todos?sort=createdAt')
+        api.get('/todos?sort=-createdAt')
             .then(res => this.setState({ description : '', list : res.data }))
     }
     
