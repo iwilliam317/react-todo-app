@@ -30,6 +30,12 @@ export default class ToDo extends Component {
         this.setState({ description : event.target.value })
     }
 
+    handleMarkAsDone(task){
+        console.log('marking as done', task._id)
+        api.put(`/todos/${task._id}` , {...task, done: true })
+            .then( res => this.loadTasks())
+    }
+
     handleRemove(task){
         if(confirm('Are you sure?')){
             api.delete(`/todos/${task._id}`)
@@ -40,8 +46,14 @@ export default class ToDo extends Component {
         return (
             <div>
                 <PageHeader title='ToDo' />
-                <Form handleAdd={this.handleAdd.bind(this)} handleChange={this.handleChange.bind(this)} description={this.state.description} />
-                <List tasks={this.state.list} handleRemove={this.handleRemove.bind(this)} />
+                <Form 
+                    handleAdd={this.handleAdd.bind(this)} 
+                    handleChange={this.handleChange.bind(this)} 
+                    description={this.state.description} />
+                <List 
+                    tasks={this.state.list} 
+                    handleRemove={this.handleRemove.bind(this)}
+                    handleMarkAsDone={this.handleMarkAsDone.bind(this)} />
             </div>
 
         )

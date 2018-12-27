@@ -10,6 +10,8 @@ export default props => {
             tasks.map(task => (
                 <tr key={ task._id }>
                     <td>{ task.description}</td>
+                    <td><Button style='success' icon='check' onClick={()=> props.handleMarkAsDone(task) }/></td>
+                    <td><Button style='warning' icon='undo' /></td>
                     <td><Button style='danger' onClick={() => props.handleRemove(task)} icon='trash' /></td>
                 </tr>
             ))
@@ -23,7 +25,7 @@ export default props => {
             <table className='table' >
                 <thead>
                     <tr>
-                        <th>
+                        <th width='80%'>
                             Description
                         </th>
                         <th>
