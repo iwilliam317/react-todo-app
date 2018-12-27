@@ -12,10 +12,10 @@ export default class ToDo extends Component {
     }
 
     componentDidMount(){
-        this.loadTasks()
+        this.refresh()
     }
 
-    loadTasks(){
+    refresh(){
         api.get('/todos?sort=-createdAt')
             .then(res => this.setState({ description : '', list : res.data }))
     }
@@ -23,7 +23,7 @@ export default class ToDo extends Component {
     handleAdd(){
         const { description } = this.state
         api.post('/todos', { description })
-            .then(res => this.loadTasks())
+            .then(res => this.refresh())
     }
 
     handleChange(event){
@@ -33,13 +33,13 @@ export default class ToDo extends Component {
     handleMarkAsDone(task){
         console.log('marking as done', task._id)
         api.put(`/todos/${task._id}` , {...task, done: true })
-            .then( res => this.loadTasks())
+            .then( res => this.refresh())
     }
 
     handleRemove(task){
         if(confirm('Are you sure?')){
             api.delete(`/todos/${task._id}`)
-                .then(res => this.loadTasks())
+                .then(res => this.refresh())
         }
     }
     render(){
