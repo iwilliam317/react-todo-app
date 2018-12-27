@@ -8,7 +8,6 @@ import List from './list'
 export default class ToDo extends Component {
     constructor(props){
         super(props)
-       
         this.state = { description: '', list: [] }
     }
 
