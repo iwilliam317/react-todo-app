@@ -35,6 +35,11 @@ export default class ToDo extends Component {
             .then( res => this.refresh())
     }
 
+    handleMarkAsPending(task){
+        api.put(`/todos/${task._id}`, { ...task, done: false })
+            .then(res => this.refresh())
+    }
+
     handleRemove(task){
         if(confirm('Are you sure?')){
             api.delete(`/todos/${task._id}`)
@@ -52,7 +57,8 @@ export default class ToDo extends Component {
                 <List 
                     tasks={this.state.list} 
                     handleRemove={this.handleRemove.bind(this)}
-                    handleMarkAsDone={this.handleMarkAsDone.bind(this)} />
+                    handleMarkAsDone={this.handleMarkAsDone.bind(this)}
+                    handleMarkAsPending={this.handleMarkAsPending.bind(this)} />
             </div>
 
         )
