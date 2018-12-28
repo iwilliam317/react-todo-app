@@ -24,11 +24,10 @@ export default props => {
     
 
     return(
-        <div>
-            <h2>List</h2>
-            <table className='table' >
+        <div className='row'>
+            <table className='table table-hover' >
                 <thead>
-                    <tr>
+                    <tr className='table-info text-secondary'>
                         <th width='80%'>
                             Description
                         </th>
