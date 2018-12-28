@@ -15,13 +15,15 @@ export default class ToDo extends Component {
         this.refresh()
     }
 
-    refresh(){
-        api.get('/todos?sort=-createdAt')
-            .then(res => this.setState({ description : '', list : res.data }))
+    refresh(description = ''){
+        const search = description ? `&description__regex=/${description}/i` : ''
+        console.log(search)
+        api.get(`/todos?sort=-createdAt${search}`)
+            .then(res => this.setState({ description , list : res.data }))
     }
     
     handleSearch(event){
-        console.log('searching', this.state.description)
+        this.refresh(this.state.description)
     }
     
     handleAdd(){
@@ -36,18 +38,18 @@ export default class ToDo extends Component {
 
     handleMarkAsDone(task){
         api.put(`/todos/${task._id}` , {...task, done: true })
-            .then( res => this.refresh())
+            .then( res => this.refresh(this.state.description))
     }
 
     handleMarkAsPending(task){
         api.put(`/todos/${task._id}`, { ...task, done: false })
-            .then(res => this.refresh())
+            .then(res => this.refresh(this.state.description))
     }
 
     handleRemove(task){
         if(confirm('Are you sure?')){
             api.delete(`/todos/${task._id}`)
-                .then(res => this.refresh())
+                .then(res => this.refresh(this.state.description))
         }
     }
     render(){
