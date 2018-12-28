@@ -11,13 +11,13 @@ export default props => {
                 <tr key={ task._id }>
                     <td className={task.done ? 'done': ''}>{ task.description}</td>
                     <td>
-                        <Button style='success' icon='check' onClick={()=> props.handleMarkAsDone(task) }/>
+                        <Button style='success' icon='check' onClick={()=> props.handleMarkAsDone(task) } show={task.done}/>
                     </td>
                     <td>
-                        <Button style='warning' icon='undo' onClick={()=> props.handleMarkAsPending(task)}/>
+                        <Button style='warning' icon='undo' onClick={()=> props.handleMarkAsPending(task)} show={!task.done}/>
                     </td>
                     <td>
-                        <Button style='danger' onClick={() => props.handleRemove(task)} icon='trash' />
+                        <Button style='danger' onClick={() => props.handleRemove(task)} icon='trash' show={!task.done} />
                     </td>
                 </tr>
             ))
