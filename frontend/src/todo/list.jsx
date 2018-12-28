@@ -28,7 +28,7 @@ export default props => {
             <table className='table table-hover' >
                 <thead>
                     <tr className='table-info text-secondary'>
-                        <th width='80%'>
+                        <th className='theadDescription'>
                             Description
                         </th>
                         <th>

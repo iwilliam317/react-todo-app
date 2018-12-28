@@ -17,7 +17,7 @@ export default class ToDo extends Component {
 
     refresh(description = ''){
         const search = description ? `&description__regex=/${description}/i` : ''
-        console.log(search)
+
         api.get(`/todos?sort=-createdAt${search}`)
             .then(res => this.setState({ description , list : res.data }))
     }
@@ -52,6 +52,11 @@ export default class ToDo extends Component {
                 .then(res => this.refresh(this.state.description))
         }
     }
+
+    handleReset(){
+        this.refresh()
+    }
+
     render(){
         return (
             <div>
@@ -60,6 +65,7 @@ export default class ToDo extends Component {
                     handleAdd={this.handleAdd.bind(this)} 
                     handleChange={this.handleChange.bind(this)} 
                     handleSearch={this.handleSearch.bind(this)}
+                    handleReset={this.handleReset.bind(this)}
                     description={this.state.description} />
                 <List 
                     tasks={this.state.list} 
