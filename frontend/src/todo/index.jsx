@@ -20,6 +20,10 @@ export default class ToDo extends Component {
             .then(res => this.setState({ description : '', list : res.data }))
     }
     
+    handleSearch(event){
+        console.log('searching', this.state.description)
+    }
+    
     handleAdd(){
         const { description } = this.state
         api.post('/todos', { description })
@@ -53,6 +57,7 @@ export default class ToDo extends Component {
                 <Form 
                     handleAdd={this.handleAdd.bind(this)} 
                     handleChange={this.handleChange.bind(this)} 
+                    handleSearch={this.handleSearch.bind(this)}
                     description={this.state.description} />
                 <List 
                     tasks={this.state.list} 
