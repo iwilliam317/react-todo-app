@@ -1,0 +1,20 @@
+.done {
+    text-decoration: line-through;
+    color: #777;
+}
+
+i{
+    color: white
+}
+
+button {
+    margin-right: .5rem
+}
+
+.todoForm{
+    margin-bottom: 3rem
+}
+
+.theadDescription {
+    width: 85%
+}
