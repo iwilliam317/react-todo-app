@@ -1,5 +1,7 @@
 # todo-app
 
+A to-do list application for task management
+
 ## Structure
   The project is structured as: backend and frontend, separated in their respective folders.
 
