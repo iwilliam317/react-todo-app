@@ -68,7 +68,7 @@ export default class ToDo extends Component {
                     handleReset={this.handleReset.bind(this)}
                     description={this.state.description} />
                 <List 
-                    tasks={this.state.list} 
+                    // tasks={this.state.list} 
                     handleRemove={this.handleRemove.bind(this)}
                     handleMarkAsDone={this.handleMarkAsDone.bind(this)}
                     handleMarkAsPending={this.handleMarkAsPending.bind(this)} />

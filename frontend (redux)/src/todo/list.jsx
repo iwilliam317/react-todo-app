@@ -1,7 +1,8 @@
 import React from 'react'
 import Button from '../template/button'
+import { connect } from 'react-redux'
 
-export default props => {
+const List = props => {
 
     const renderRows = () => {
         const tasks = props.tasks || []
@@ -43,3 +44,7 @@ export default props => {
         </div>
     )
 }
+
+const mapStateToProps = state => ({ tasks : state.todo.list })
+
+export default connect(mapStateToProps)(List)
