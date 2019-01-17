@@ -3,10 +3,13 @@ import Grid from '../template/grid'
 import Button from '../template/button'
 import { connect } from 'react-redux'
 
+import { changeDescription } from './formActions'
+import { bindActionCreators} from 'redux'
+ 
 const Form = props => (
     <div role='form' className='todoForm row'>
         <Grid cols='12 9 10'>
-            <input id='description' className='form-control' placeholder='Add or Search a task' value={props.description} onChange={props.handleChange}></input>
+            <input id='description' className='form-control' placeholder='Add or Search a task' value={props.description} onChange={props.changeDescription}></input>
         </Grid>
         <Grid cols='12 3 2'>
             <Button style='primary' icon='plus' onClick={props.handleAdd} />
@@ -17,4 +20,6 @@ const Form = props => (
 )
 
 const mapStateToProps = state => ({ description: state.todo.description })
-export default connect(mapStateToProps)(Form)
+const mapDispatchToProps = dispatch => bindActionCreators({ changeDescription }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form)
