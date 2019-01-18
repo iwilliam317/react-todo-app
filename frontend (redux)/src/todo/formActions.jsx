@@ -9,7 +9,7 @@ const search = () => {
     const response = api.get(`/todos?sort=-createdAt`)
     return {
         type: 'TODO_SEARCHED',
-        payload: response.data
+        payload: response
     }
 }
 
