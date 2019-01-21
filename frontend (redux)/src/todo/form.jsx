@@ -9,20 +9,21 @@ import { bindActionCreators} from 'redux'
 class Form extends Component {
     constructor(props){
         super(props)
-
+        
     }
     componentWillMount(){
         this.props.searchDescription()
     }
 
     render(){
+        const { description, changeDescription, searchDescription, addDescription } = this.props
         return (
             <div role='form' className='todoForm row'>
                 <Grid cols='12 9 10'>
-                    <input id='description' className='form-control' placeholder='Add or Search a task' value={this.props.description} onChange={this.props.changeDescription}></input>
+                    <input id='description' className='form-control' placeholder='Add or Search a task' value={description} onChange={changeDescription}></input>
                 </Grid>
                 <Grid cols='12 3 2'>
-                    <Button style='primary' icon='plus' onClick={() => this.props.addDescription(this.props.description) } />
+                    <Button style='primary' icon='plus' onClick={() => addDescription(description) } />
                     <Button style='info' icon='search' onClick={this.props.handleSearch}/>
                     <Button style='default' icon='close' onClick={this.props.handleReset}/>
                 </Grid>
