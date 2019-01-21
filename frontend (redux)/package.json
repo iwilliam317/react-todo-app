@@ -7,7 +7,11 @@
     "dev": "webpack-dev-server --progress --colors --inline --hot",
     "production": "webpack --progress -p"
   },
-  "keywords": ["todo", "task manager", "app"],
+  "keywords": [
+    "todo",
+    "task manager",
+    "app"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

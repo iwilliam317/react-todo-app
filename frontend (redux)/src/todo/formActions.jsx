@@ -13,4 +13,12 @@ const search = () => {
     }
 }
 
-export { changeDescription, search }
+const addDescription = description => {
+    const response = api.post('/todos', { description })
+    return {
+        type: 'TODO_ADDED',
+        payload: response
+    }
+}
+
+export { changeDescription, search, addDescription }
