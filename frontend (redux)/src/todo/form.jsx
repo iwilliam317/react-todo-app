@@ -3,7 +3,7 @@ import Grid from '../template/grid'
 import Button from '../template/button'
 import { connect } from 'react-redux'
 
-import { changeDescription, search, addDescription } from './formActions'
+import { changeDescription, searchDescription, addDescription } from './formActions'
 import { bindActionCreators} from 'redux'
  
 class Form extends Component {
@@ -12,7 +12,7 @@ class Form extends Component {
 
     }
     componentWillMount(){
-        this.props.search()
+        this.props.searchDescription()
     }
 
     render(){
@@ -33,6 +33,6 @@ class Form extends Component {
     }
 
 const mapStateToProps = state => ({ description: state.todo.description })
-const mapDispatchToProps = dispatch => bindActionCreators({ changeDescription, search, addDescription }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ changeDescription, searchDescription, addDescription }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form)

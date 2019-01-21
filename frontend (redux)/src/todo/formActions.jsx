@@ -5,7 +5,7 @@ const changeDescription = event => ({
     payload: event.target.value
 })
 
-const search = () => {
+const searchDescription = () => {
     const response = api.get(`/todos?sort=-createdAt`)
     return {
         type: 'TODO_SEARCHED',
@@ -21,4 +21,4 @@ const addDescription = description => {
     }
 }
 
-export { changeDescription, search, addDescription }
+export { changeDescription, searchDescription, addDescription }
