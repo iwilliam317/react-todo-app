@@ -16,7 +16,7 @@ class Form extends Component {
     }
 
     render(){
-        const { description, changeDescription, searchDescription, addDescription } = this.props
+        const { description, changeDescription, addDescription } = this.props
         return (
             <div role='form' className='todoForm row'>
                 <Grid cols='12 9 10'>
