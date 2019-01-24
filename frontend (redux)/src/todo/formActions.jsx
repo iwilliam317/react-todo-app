@@ -15,10 +15,10 @@ const searchDescription = () => {
 
 const addDescription = description => {
     const response = api.post('/todos', { description })
-    return {
-        type: 'TODO_ADDED',
-        payload: response
-    }
+    return [
+        { type: 'TODO_ADDED', payload: response },
+        searchDescription()
+    ]
 }
 
 export { changeDescription, searchDescription, addDescription }
