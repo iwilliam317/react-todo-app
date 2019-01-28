@@ -14,11 +14,11 @@ const searchDescription = () => {
 }
 
 const addDescription = description => {
-    const response = api.post('/todos', { description })
-    return [
-        { type: 'TODO_ADDED', payload: response },
-        searchDescription()
-    ]
+    return dispatch => {
+        api.post('/todos', { description })
+            .then(res => dispatch({ type: 'TODO_ADDED', payload:res }))
+            .then(res => dispatch(searchDescription()))
+    }
 }
 
 export { changeDescription, searchDescription, addDescription }
