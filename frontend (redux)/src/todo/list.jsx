@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../template/button'
 import { connect } from 'react-redux'
-import { bindActionCreator, bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux'
 
 import { markAsDone } from './formActions'
 
