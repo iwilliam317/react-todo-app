@@ -26,20 +26,8 @@ export default class ToDo extends Component {
         this.refresh(this.state.description)
     }
     
-    handleAdd(){
-        const { description } = this.state
-        api.post('/todos', { description })
-            .then(res => this.refresh())
-    }
 
-    handleChange(event){
-        this.setState({ description : event.target.value })
-    }
 
-    handleMarkAsDone(task){
-        api.put(`/todos/${task._id}` , {...task, done: true })
-            .then( res => this.refresh(this.state.description))
-    }
 
     handleMarkAsPending(task){
         api.put(`/todos/${task._id}`, { ...task, done: false })
