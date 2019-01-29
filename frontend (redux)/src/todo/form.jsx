@@ -23,7 +23,7 @@ class Form extends Component {
                     <input id='description' className='form-control' placeholder='Add or Search a task' value={description} onChange={changeDescription}></input>
                 </Grid>
                 <Grid cols='12 3 2'>
-                    <Button style='primary' icon='plus' onClick={() => addDescription(description) } />
+                    <Button style='primary' icon='plus' onClick={() => addDescription(description) } disabled={description == ''} />
                     <Button style='info' icon='search' onClick={this.props.handleSearch}/>
                     <Button style='default' icon='close' onClick={this.props.handleReset}/>
                 </Grid>
