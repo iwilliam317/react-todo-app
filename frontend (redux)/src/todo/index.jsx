@@ -49,17 +49,8 @@ export default class ToDo extends Component {
         return (
             <div>
                 <PageHeader title='ToDo' />
-                <Form 
-                    handleAdd={this.handleAdd.bind(this)} 
-                    handleChange={this.handleChange.bind(this)} 
-                    handleSearch={this.handleSearch.bind(this)}
-                    handleReset={this.handleReset.bind(this)}
-                    description={this.state.description} />
-                <List 
-                    // tasks={this.state.list} 
-                    handleRemove={this.handleRemove.bind(this)}
-                    handleMarkAsDone={this.handleMarkAsDone.bind(this)}
-                    handleMarkAsPending={this.handleMarkAsPending.bind(this)} />
+                <Form />
+                <List />
             </div>
 
         )
