@@ -21,4 +21,11 @@ const addDescription = description => {
     }
 }
 
-export { changeDescription, searchDescription, addDescription }
+const markAsDone = task => {
+    return dispatch => {
+        api.put(`/todos/${task._id}`, { ...task, done : true })
+            .then(res => dispatch(searchDescription()))
+    }
+}
+
+export { changeDescription, searchDescription, addDescription, markAsDone }

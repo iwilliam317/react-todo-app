@@ -1,6 +1,9 @@
 import React from 'react'
 import Button from '../template/button'
 import { connect } from 'react-redux'
+import { bindActionCreator, bindActionCreators } from 'redux'
+
+import { markAsDone } from './formActions'
 
 const List = props => {
 
@@ -12,7 +15,7 @@ const List = props => {
                 <tr key={ task._id }>
                     <td className={task.done ? 'done': ''}>{ task.description}</td>
                     <td>
-                        <Button style='success' icon='check' onClick={()=> props.handleMarkAsDone(task) } show={task.done}/>
+                        <Button style='success' icon='check' onClick={()=> props.markAsDone(task) } show={task.done}/>
 
                         <Button style='warning' icon='undo' onClick={()=> props.handleMarkAsPending(task)} show={!task.done}/>
  
@@ -46,5 +49,6 @@ const List = props => {
 }
 
 const mapStateToProps = state => ({ tasks : state.todo.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ markAsDone }, dispatch)
 
-export default connect(mapStateToProps)(List)
+export default connect(mapStateToProps, mapDispatchToProps)(List)
