@@ -25,14 +25,6 @@ export default class ToDo extends Component {
     handleSearch(event){
         this.refresh(this.state.description)
     }
-    
-
-
-
-    handleMarkAsPending(task){
-        api.put(`/todos/${task._id}`, { ...task, done: false })
-            .then(res => this.refresh(this.state.description))
-    }
 
     handleRemove(task){
         if(confirm('Are you sure?')){
