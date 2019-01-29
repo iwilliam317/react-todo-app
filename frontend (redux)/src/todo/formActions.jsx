@@ -28,4 +28,11 @@ const markAsDone = task => {
     }
 }
 
-export { changeDescription, searchDescription, addDescription, markAsDone }
+const markAsPending = task => {
+    return dispatch => {
+        api.put(`/todos/${task._id}`, { ...task, done: false })
+            .then(res => dispatch(searchDescription()))
+    }
+}
+
+export { changeDescription, searchDescription, addDescription, markAsDone, markAsPending }
