@@ -39,4 +39,11 @@ const markAsPending = task => {
     }
 }
 
-export { changeDescription, searchDescription, addDescription, markAsDone, markAsPending }
+const removeDescription = task => {
+    return dispatch => {
+        api.delete(`/todos/${task._id}`)
+            .then(res => dispatch(searchDescription()))
+    }
+}
+
+export { changeDescription, searchDescription, addDescription, markAsDone, markAsPending, removeDescription }
