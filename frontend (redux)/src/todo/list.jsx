@@ -9,17 +9,18 @@ const List = props => {
 
     const renderRows = () => {
         const tasks = props.tasks || []
+        const { markAsDone, markAsPending, removeDescription } = props
 
         return(
             tasks.map(task => (
                 <tr key={ task._id }>
                     <td className={task.done ? 'done': ''}>{ task.description}</td>
                     <td>
-                        <Button style='success' icon='check' onClick={()=> props.markAsDone(task) } show={task.done}/>
+                        <Button style='success' icon='check' onClick={()=> markAsDone(task) } show={task.done}/>
 
-                        <Button style='warning' icon='undo' onClick={()=> props.markAsPending(task)} show={!task.done}/>
+                        <Button style='warning' icon='undo' onClick={()=> markAsPending(task)} show={!task.done}/>
  
-                        <Button style='danger' onClick={() => (confirm('Are you sure?') ? props.removeDescription(task): null)} icon='trash' show={!task.done} />
+                        <Button style='danger' onClick={() => (confirm('Are you sure?') ? removeDescription(task): null)} icon='trash' show={!task.done} />
                     </td>
                 </tr>
             ))
