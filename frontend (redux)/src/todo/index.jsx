@@ -26,13 +26,6 @@ export default class ToDo extends Component {
         this.refresh(this.state.description)
     }
 
-    handleRemove(task){
-        if(confirm('Are you sure?')){
-            api.delete(`/todos/${task._id}`)
-                .then(res => this.refresh(this.state.description))
-        }
-    }
-
     handleReset(){
         this.refresh()
     }
