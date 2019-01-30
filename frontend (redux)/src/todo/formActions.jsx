@@ -16,7 +16,7 @@ const searchDescription = () => {
 const addDescription = description => {
     return dispatch => {
         api.post('/todos', { description })
-            .then(res => dispatch({ type: 'TODO_ADDED', payload:res }))
+            .then(res => dispatch(resetDescription()))
             .then(res => dispatch(searchDescription()))
             .catch(err => {
                 throw new Error(err)
