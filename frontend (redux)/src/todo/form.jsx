@@ -3,7 +3,7 @@ import Grid from '../template/grid'
 import Button from '../template/button'
 import { connect } from 'react-redux'
 
-import { changeDescription, searchDescription, addDescription } from './formActions'
+import { changeDescription, searchDescription, addDescription, resetDescription } from './formActions'
 import { bindActionCreators} from 'redux'
  
 class Form extends Component {
@@ -16,7 +16,7 @@ class Form extends Component {
     }
 
     render(){
-        const { description, changeDescription, addDescription } = this.props
+        const { description, changeDescription, addDescription, resetDescription } = this.props
         return (
             <div role='form' className='todoForm row'>
                 <Grid cols='12 9 10'>
@@ -25,7 +25,7 @@ class Form extends Component {
                 <Grid cols='12 3 2'>
                     <Button style='primary' icon='plus' onClick={() => addDescription(description) } disabled={description == ''} />
                     <Button style='info' icon='search' onClick={this.props.handleSearch}/>
-                    <Button style='default' icon='close' onClick={this.props.handleReset}/>
+                    <Button style='default' icon='close' onClick={resetDescription}/>
                 </Grid>
             </div>
         )
@@ -34,6 +34,6 @@ class Form extends Component {
     }
 
 const mapStateToProps = state => ({ description: state.todo.description })
-const mapDispatchToProps = dispatch => bindActionCreators({ changeDescription, searchDescription, addDescription }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ changeDescription, searchDescription, addDescription, resetDescription }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form)

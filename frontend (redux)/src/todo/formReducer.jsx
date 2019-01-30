@@ -8,6 +8,8 @@ const formReducer = (state = INITIAL_STATE, action) => {
             return { ...state, list: action.payload.data }
         case 'TODO_ADDED':
             return { ...state, description: '' }
+        case 'TODO_RESETED':
+            return { ...state, description: ''}
         default:
             return state
     }

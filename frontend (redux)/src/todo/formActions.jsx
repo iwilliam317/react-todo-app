@@ -46,4 +46,8 @@ const removeDescription = task => {
     }
 }
 
-export { changeDescription, searchDescription, addDescription, markAsDone, markAsPending, removeDescription }
+const resetDescription = () => ({
+    type: 'TODO_RESETED'
+})
+
+export { changeDescription, searchDescription, addDescription, markAsDone, markAsPending, removeDescription, resetDescription}
