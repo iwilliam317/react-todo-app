@@ -26,10 +26,6 @@ export default class ToDo extends Component {
         this.refresh(this.state.description)
     }
 
-    handleReset(){
-        this.refresh()
-    }
-
     render(){
         return (
             <div>
