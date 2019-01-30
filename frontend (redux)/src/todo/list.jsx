@@ -19,7 +19,7 @@ const List = props => {
 
                         <Button style='warning' icon='undo' onClick={()=> props.markAsPending(task)} show={!task.done}/>
  
-                        <Button style='danger' onClick={() => props.removeDescription(task)} icon='trash' show={!task.done} />
+                        <Button style='danger' onClick={() => (confirm('Are you sure?') ? props.removeDescription(task): null)} icon='trash' show={!task.done} />
                     </td>
                 </tr>
             ))
