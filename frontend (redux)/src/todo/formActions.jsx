@@ -38,9 +38,11 @@ const removeDescription = task => {
     }
 }
 
-const resetDescription = () => ({
-    type: 'TODO_RESETED'
-})
+const resetDescription = () => ([
+    { type: 'TODO_RESETED'},
+    searchDescription()
+
+])
 
 const searchDescription = () => {
     return (dispatch, getState) => {
