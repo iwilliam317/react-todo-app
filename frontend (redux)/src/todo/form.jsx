@@ -16,7 +16,7 @@ class Form extends Component {
     }
 
     render(){
-        const { description, changeDescription, addDescription, resetDescription } = this.props
+        const { description, changeDescription, addDescription, resetDescription , searchDescription} = this.props
         return (
             <div role='form' className='todoForm row'>
                 <Grid cols='12 9 10'>
@@ -24,7 +24,7 @@ class Form extends Component {
                 </Grid>
                 <Grid cols='12 3 2'>
                     <Button style='primary' icon='plus' onClick={() => addDescription(description) } disabled={description == ''} />
-                    <Button style='info' icon='search' onClick={this.props.handleSearch}/>
+                    <Button style='info' icon='search' onClick={searchDescription}/>
                     <Button style='default' icon='close' onClick={resetDescription}/>
                 </Grid>
             </div>

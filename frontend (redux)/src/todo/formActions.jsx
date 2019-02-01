@@ -5,14 +5,6 @@ const changeDescription = event => ({
     payload: event.target.value
 })
 
-const searchDescription = () => {
-    const response = api.get(`/todos?sort=-createdAt`)
-    return {
-        type: 'TODO_SEARCHED',
-        payload: response
-    }
-}
-
 const addDescription = description => {
     return dispatch => {
         api.post('/todos', { description })
@@ -49,5 +41,16 @@ const removeDescription = task => {
 const resetDescription = () => ({
     type: 'TODO_RESETED'
 })
+
+const searchDescription = () => {
+    return (dispatch, getState) => {
+        const description = getState().todo.description
+        const search = description ? `&description__regex=/${description}/i` : ''
+
+        api.get(`/todos?sort=-createdAt${search}`)
+            .then(res => dispatch({ type: 'TODO_SEARCHED', payload: res.data }))
+
+    }
+}
 
 export { changeDescription, searchDescription, addDescription, markAsDone, markAsPending, removeDescription, resetDescription}
