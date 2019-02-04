@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const url = process.env.MONGOLAB_URI || 'mongodb://localhost/todo'
+const url = process.env.MONGOLAB_URI_TODO || 'mongodb://localhost/todo'
 
 mongoose.connect(url, (error, response) => {
     if (error) console.log (`ERROR connecting to:  ${url} -  ${error}`);
