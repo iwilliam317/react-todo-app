@@ -10,5 +10,5 @@ A to-do list application for task management
     - frontend (react only)
     - frontend (redux)
     
-  * The backend is responsible for the logical part of the application.
-  * The frontend is responsible for interacting with the api through an interface.
+  * The backend - logical part of the application.
+  * The frontend - interactive interface.
